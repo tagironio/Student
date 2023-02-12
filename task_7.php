@@ -1,6 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+        <?php $users =
+    [
+
+    [
+    "name" => "Derek Zoolander",
+    "tags" => "derek zoolander",
+    "image" => "img/demo/authors/derek.png",
+    "alt" => "Derek Z.",
+    "work" => "Best model",
+    "phone" => "+1-555-555-1111",
+    "email" => "Derek@example.com",
+    "adress" => "San Francisco",
+    "status" => "warning",
+    ],
+    [
+    "name" => "Hansel McDonald",
+    "tags" => "hansel mcdonald",
+    "image" => "img/demo/authors/hansel.png",
+    "alt" => "Hansel M.",
+    "work" => "Orgy master",
+    "phone" => "+1-555-555-1212",
+    "email" => "Hansel.McDonald@gmail.com",
+    "adress" => "15 fillmore, Santa Fe C 42331",
+    "status" => "danger",
+    ],
+    [
+    "name" => "Billy Herrington",
+    "tags" => "billy herrington",
+    "image" => "img/demo/authors/billy.png",
+    "alt" => "Billy H.",
+    "phone" => "+1-555-555-1313",
+    "work" => "Dungeon Master",
+    "email" => "Billy.Herrington@gmail.com",
+    "adress" => "Paradise city",
+    "status" => "success",
+    ],
+    [
+    "name" => "Tagir Kazbekov",
+    "tags" => "tagir kazbekov",
+    "image" => "img/demo/authors/tagir.png",
+    "alt" => "Tagir K.",
+    "phone" => "+1-555-555-1414",
+    "work" => "Gigachad",
+    "email" => "tagir-kazbekov@mail.ru",
+    "adress" => "5 Rodosskaya St, Stavropol, 355021 RUS",
+    "status" => "success",
+    ],
+    [
+    "name" => "Kirill Dolbnya",
+    "tags" => "kirill dolbnya",
+    "image" => "img/demo/authors/kirill.png",
+    "alt" => "Kirill D.",
+    "phone" => "+1-555-555-1515",
+    "work" => "Programmer",
+    "email" => "Kirill.D@gmail.com",
+    "adress" => "Tashla city",
+    "status" => "danger",
+    ],
+    ]
+    ?>
         <meta charset="utf-8">
         <title>
             Подготовительные задания к курсу
@@ -36,16 +96,17 @@
                 </div>
             </div>
             <div class="row js-list-filter" id="js-contacts">
+                <?php foreach ($users as $user):?>
                 <div class="col-xl-4">
-                    <div id="c_1" class="card border shadow-0 mb-g shadow-sm-hover" data-filter-tags="oliver kopyov">
+                    <div id="c_1" class="card border shadow-0 mb-g shadow-sm-hover" data-filter-tags="<?php echo $user["tags"]?>">
                         <div class="card-body border-faded border-top-0 border-left-0 border-right-0 rounded-top">
                             <div class="d-flex flex-row align-items-center">
-                                <span class="status status-success mr-3">
-                                    <span class="rounded-circle profile-image d-block " style="background-image:url('img/demo/avatars/avatar-b.png'); background-size: cover;"></span>
+                                <span class="status status-<?php echo $user["status"]  ?> mr-3">
+                                    <span class="rounded-circle profile-image d-block " style="background-image:url('<?php echo $user["image"]  ?>'); background-size: cover;"></span>
                                 </span>
                                 <div class="info-card-text flex-1">
                                     <a href="javascript:void(0);" class="fs-xl text-truncate text-truncate-lg text-info" data-toggle="dropdown" aria-expanded="false">
-                                        Oliver Kopyov
+                                        <?php echo $user["name"]  ?>
                                         <i class="fal fa-angle-down d-inline-block ml-1 fs-md"></i>
                                     </a>
                                     <div class="dropdown-menu">
@@ -53,7 +114,7 @@
                                         <a class="dropdown-item" href="#">Create Appointment</a>
                                         <a class="dropdown-item" href="#">Block User</a>
                                     </div>
-                                    <span class="text-truncate text-truncate-xl">IT Director, Gotbootstrap Inc.</span>
+                                    <span class="text-truncate text-truncate-xl"><?php echo $user["work"]  ?></span>
                                 </div>
                                 <button class="js-expand-btn btn btn-sm btn-default d-none waves-effect waves-themed" data-toggle="collapse" data-target="#c_1 > .card-body + .card-body" aria-expanded="false">
                                     <span class="collapsed-hidden">+</span>
@@ -63,12 +124,12 @@
                         </div>
                         <div class="card-body p-0 collapse show">
                             <div class="p-3">
-                                <a href="tel:+13174562564" class="mt-1 d-block fs-sm fw-400 text-dark">
-                                    <i class="fas fa-mobile-alt text-muted mr-2"></i> +1 317-456-2564</a>
-                                <a href="mailto:oliver.kopyov@smartadminwebapp.com" class="mt-1 d-block fs-sm fw-400 text-dark">
-                                    <i class="fas fa-mouse-pointer text-muted mr-2"></i> oliver.kopyov@smartadminwebapp.com</a>
+                                <a href="tel:<?php echo $user["phone"]?>" class="mt-1 d-block fs-sm fw-400 text-dark">
+                                    <i class="fas fa-mobile-alt text-muted mr-2"></i> <?php echo $user["phone"]?></a>
+                                <a href="<?php echo $user["email"]?>" class="mt-1 d-block fs-sm fw-400 text-dark">
+                                    <i class="fas fa-mouse-pointer text-muted mr-2"></i> <?php echo $user["email"]?></a>
                                 <address class="fs-sm fw-400 mt-4 text-muted">
-                                    <i class="fas fa-map-pin mr-2"></i> 15 Charist St, Detroit, MI, 48212, USA</address>
+                                    <i class="fas fa-map-pin mr-2"></i> <?php echo $user["adress"]?></address>
                                 <div class="d-flex flex-row">
                                     <a href="javascript:void(0);" class="mr-2 fs-xxl" style="color:#3b5998">
                                         <i class="fab fa-facebook-square"></i>
@@ -84,7 +145,8 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-xl-4">
+                <?php endforeach;?>
+                <!--<div class="col-xl-4">
                     <div id="c_2" class="card border shadow-0 mb-g shadow-sm-hover" data-filter-tags="sesha gray">
                         <div class="card-body border-faded border-top-0 border-left-0 border-right-0 rounded-top">
                             <div class="d-flex flex-row align-items-center">
@@ -418,7 +480,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div>-->
                 </div>
             </div>
         </main>

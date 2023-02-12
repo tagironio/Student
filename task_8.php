@@ -1,6 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <?php $elements =
+        [
+            [
+                "name" => "Главная",
+                "link" => "https://www.youtube.com/watch?v=dQw4w9WgX",
+                "is_active" => true ,
+            ],
+            [
+                "name" => "PHP",
+                "link" => "https://www.youtube.com/watch?v=dQw4w9WgX",
+                "is_active" => true,
+            ],
+            [
+                "name" => "Функции",
+                "link" => "",
+                "is_active" => false ,
+            ],
+        ]
+    ?>
         <meta charset="utf-8">
         <title>
             Подготовительные задания к курсу
@@ -33,11 +52,15 @@
                     <div class="panel-container show">
                         <div class="panel-content">
                             <ol class="breadcrumb page-breadcrumb">
-                                <li class="breadcrumb-item"><a href="#">Главная</a></li>
-                                <li class="breadcrumb-item"><a href="#">PHP</a></li>
-                                <li class="breadcrumb-item active">Функции</li>
+                                <?php foreach ($elements as $element): ?>
+                                <?php if ($element["is_active"]): ?>
+                                <li class="breadcrumb-item"><a href="<?php echo $element["link"]  ?>"><?php echo $element["name"]  ?></a></li>
+                                <?php else: ?>
+                                <li class="breadcrumb-item active"><?php echo $element["name"]  ?></li>
+                                <?php endif;?>
+                                <?php endforeach;?>
                             </ol>
-                        </div>
+                        </div> <!--��������о��е����е Кирилл one love ��������о��е����е-->
                     </div>
                 </div>
             </div>

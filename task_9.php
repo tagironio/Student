@@ -1,6 +1,76 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <?php $users =
+        [
+
+            [
+                "id" => "1",
+                "firstname" => "Derek",
+                "lastname" => "Zoolander",
+                "username"  => "@bluesteel",
+                "image" => "img/demo/authors/derek.png",
+                "alt" => "Derek Z.",
+                "work" => "Best model",
+                "phone" => "+1-555-555-1111",
+                "email" => "Derek@example.com",
+                "adress" => "San Francisco",
+                "status" => "warning",
+            ],
+            [
+                "id" => "2",
+                "firstname" => "Hansel",
+                "lastname" => "McDonald",
+                "username"  => "@orgymag",
+                "image" => "img/demo/authors/hansel.png",
+                "alt" => "Hansel M.",
+                "work" => "Orgy master",
+                "phone" => "+1-555-555-1212",
+                "email" => "Hansel.McDonald@gmail.com",
+                "adress" => "15 fillmore, Santa Fe C 42331",
+                "status" => "danger",
+            ],
+            [
+                "id" => "3",
+                "firstname" => "Billy",
+                "lastname" => "Herrington",
+                "username"  => "@fatcock",
+                "image" => "img/demo/authors/billy.png",
+                "alt" => "Billy H.",
+                "phone" => "+1-555-555-1313",
+                "work" => "Dungeon Master",
+                "email" => "Billy.Herrington@gmail.com",
+                "adress" => "Paradise city",
+                "status" => "success",
+            ],
+            [
+                "id" => "4",
+                "firstname" => "Tagir",
+                "lastname" => "Kazbekov",
+                "username"  => "@tagironio",
+                "image" => "img/demo/authors/tagir.png",
+                "alt" => "Tagir K.",
+                "phone" => "+1-555-555-1414",
+                "work" => "Gigachad",
+                "email" => "tagir-kazbekov@mail.ru",
+                "adress" => "5 Rodosskaya St, Stavropol, 355021 RUS",
+                "status" => "success",
+            ],
+            [
+                "id" => "5",
+                "firstname" => "Kirill",
+                "lastname" => "Dolbnya",
+                "username" => "@kirusha",
+                "image" => "img/demo/authors/kirill.png",
+                "alt" => "Kirill D.",
+                "phone" => "+1-555-555-1515",
+                "work" => "Programmer",
+                "email" => "Kirill.D@gmail.com",
+                "adress" => "Tashla city",
+                "status" => "danger",
+            ],
+        ]
+    ?>
         <meta charset="utf-8">
         <title>
             Подготовительные задания к курсу
@@ -40,6 +110,7 @@
                                     <thead>
                                         <tr>
                                             <th>#</th>
+                                            <th>image</th>
                                             <th>First Name</th>
                                             <th>Last Name</th>
                                             <th>Username</th>
@@ -47,50 +118,20 @@
                                         </tr>
                                     </thead>
                                     <tbody>
+                                        <?php foreach ($users as $user):?>
                                         <tr>
-                                            <th scope="row">1</th>
-                                            <td>Mark</td>
-                                            <td>Otto</td>
-                                            <td>@mdo</td>
+                                            <th scope="row"><?php echo $user["id"]  ?></th>
+                                            <td><img src="<?php echo $user["image"]  ?>" width="146" height="146""/></td>
+                                            <td><?php echo $user["firstname"]  ?></td>
+                                            <td><?php echo $user["lastname"]  ?></td>
+                                            <td><?php echo $user["username"]  ?></td>
                                             <td>
-                                                <a href="show.php?id=" class="btn btn-info">Редактировать</a>
-                                                <a href="edit.php?id=" class="btn btn-warning">Изменить</a>
-                                                <a href="delete.php?id=" class="btn btn-danger">Удалить</a>
+                                                <a href="show.php?id=<?php echo $user["id"]  ?>" class="btn btn-info">Редактировать</a>
+                                                <a href="edit.php?id=<?php echo $user["id"]  ?>" class="btn btn-warning">Изменить</a>
+                                                <a href="delete.php?id=<?php echo $user["id"]  ?>" class="btn btn-danger">Удалить</a>
                                             </td>
                                         </tr>
-                                        <tr>
-                                            <th scope="row">2</th>
-                                            <td>Jacob</td>
-                                            <td>Thornton</td>
-                                            <td>@fat</td>
-                                            <td>
-                                                <a href="show.php?id=" class="btn btn-info">Редактировать</a>
-                                                <a href="edit.php?id=" class="btn btn-warning">Изменить</a>
-                                                <a href="delete.php?id=" class="btn btn-danger">Удалить</a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">3</th>
-                                            <td>Larry</td>
-                                            <td>the Bird</td>
-                                            <td>@twitter</td>
-                                            <td>
-                                                <a href="show.php?id=" class="btn btn-info">Редактировать</a>
-                                                <a href="edit.php?id=" class="btn btn-warning">Изменить</a>
-                                                <a href="delete.php?id=" class="btn btn-danger">Удалить</a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">4</th>
-                                            <td>Larry the Bird</td>
-                                            <td> Bird</td>
-                                            <td>@twitter</td>
-                                            <td>
-                                                <a href="show.php?id=" class="btn btn-info">Редактировать</a>
-                                                <a href="edit.php?id=" class="btn btn-warning">Изменить</a>
-                                                <a href="delete.php?id=" class="btn btn-danger">Удалить</a>
-                                            </td>
-                                        </tr>
+                                        <?php endforeach;?>
                                     </tbody>
                                 </table>
                             </div>
